@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="login.css" />
+    <!-- Firebase SDKs -->
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Log In</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="login">
+        <form id="loginForm">
+          <label>
+            Email:
+            <input type="text" id="username"/>
+          </label>
+          <label>
+            Password:
+            <input type="password" id="password"/>
+          </label>
+          <button type="submit">Log In</button>
+        </form>
+        <p>Dont have an account?</p>
+        <a href="signup.html">SignUp</a>
+        <p id="message"></p>
+      </div>
+    </div>
+  </body>
+</html>
