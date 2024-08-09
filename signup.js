@@ -1,9 +1,14 @@
-// Импорт необходимых функций из Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
-// Ваши настройки Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBiKHg9POn_rNJHC94yyH2rkj3FoLFdgi8",
   authDomain: "socoolpros.firebaseapp.com",
@@ -14,12 +19,10 @@ const firebaseConfig = {
   measurementId: "G-KZ8MCGNMLE",
 };
 
-// Инициализация Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Обработка отправки формы
 document.getElementById("signupForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -28,26 +31,30 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value.trim();
 
   try {
-    // Попытка регистрации пользователя
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     const user = userCredential.user;
 
-    // Сохранение дополнительных данных пользователя в Firestore
     await setDoc(doc(db, "users", user.uid), {
       name: name,
       email: email,
       uid: user.uid,
     });
 
-    document.getElementById("message").textContent = "User registered successfully!";
+    document.getElementById("message").textContent =
+      "User registered successfully!";
     document.getElementById("message").style.color = "green";
   } catch (error) {
-    // Обработка ошибок
-    if (error.code === 'auth/email-already-in-use') {
-      document.getElementById("message").textContent = "Email is already in use.";
+    if (error.code === "auth/email-already-in-use") {
+      document.getElementById("message").textContent =
+        "Email is already in use.";
       document.getElementById("message").style.color = "red";
     } else {
-      document.getElementById("message").textContent = "Error: " + error.message;
+      document.getElementById("message").textContent =
+        "Error: " + error.message;
       document.getElementById("message").style.color = "red";
     }
   }
