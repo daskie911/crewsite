@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  background: linear-gradient(270deg, black, white);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  color: white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.header {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.navbar {
+  margin-top: 30px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ddd;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
+
+.crew-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crew-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.crew-card img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.crew-card:hover img {
+  filter: grayscale(0%);
+}
+
+.crew-info {
+  padding: 20px;
+  color: white;
+}
+
+.crew-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Новый стиль для роли */
+.crew-info p:first-of-type {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffd700; /* Золотистый цвет для выделения */
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.crew-info p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+}
